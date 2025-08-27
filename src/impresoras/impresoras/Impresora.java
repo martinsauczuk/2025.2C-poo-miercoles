@@ -1,11 +1,11 @@
-package impresoras;
+package impresoras.impresoras;
 
 public class Impresora {
 
     private int cantCian;
     private int cantMagenta;
     private int cantAmarillo;
-    private int cantNegro;
+    protected int cantNegro;
 
     private int cantHojas;
 
@@ -14,7 +14,6 @@ public class Impresora {
 
 
     public Impresora(int cantCian, int cantMagenta, int cantAmarillo, int cantNegro, int cantHojas) {
-        System.out.println("Soy un constructor con parametros");
         this.cantCian = cantCian;
         this.cantMagenta = cantMagenta;
         this.cantAmarillo = cantAmarillo;
@@ -50,7 +49,7 @@ public class Impresora {
     }
 
 
-    private boolean hayHojasSuficientes(Documento unDocumento) {
+    protected boolean hayHojasSuficientes(Documento unDocumento) {
         return cantHojas >= unDocumento.getCantPaginas();
     }
 
@@ -62,8 +61,25 @@ public class Impresora {
     }
 
 
+    public Documento imprimir(Documento unDocumento) {
+
+        this.incrementarContadores(unDocumento);
+        this.actualizarTintas(unDocumento);
+        this.actualizarHojas(unDocumento);
+        unDocumento.marcarComoImpreso();
+
+        return unDocumento;
+    }
 
 
+    protected void actualizarHojas(Documento unDocumento) {
+        cantHojas = cantHojas - unDocumento.getCantPaginas();
+    }
+
+    protected void incrementarContadores(Documento unDocumento) {
+        contadorDeHojas = contadorDeHojas + unDocumento.getCantPaginas();
+        contadorDeDocumentos = contadorDeDocumentos + 1;
+    }
 
 
     private void actualizarTintas(Documento unDocumento) {
@@ -74,6 +90,16 @@ public class Impresora {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Impresora{" +
+                "cantCian=" + cantCian +
+                ", cantMagenta=" + cantMagenta +
+                ", cantAmarillo=" + cantAmarillo +
+                ", cantNegro=" + cantNegro +
+                ", cantHojas=" + cantHojas +
+                ", contadorDeHojas=" + contadorDeHojas +
+                ", contadorDeDocumentos=" + contadorDeDocumentos +
+                '}';
+    }
 }

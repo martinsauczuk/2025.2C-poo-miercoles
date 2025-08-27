@@ -1,4 +1,4 @@
-package impresoras;
+package impresoras.impresoras;
 
 public class Documento {
     private int cantCian;
