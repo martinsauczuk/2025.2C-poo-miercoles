@@ -11,4 +11,10 @@ public class Asistente {
     public Pulsera quePulseraTenes() {
         return pulsera;
     }
+
+    public void intercambiarPulseraCon(Asistente otroAsistente) {
+        Pulsera pulseraDelOtroAsistente = otroAsistente.quePulseraTenes();
+        otroAsistente.recibirPulsera(this.pulsera); // le doy mi pulsera
+        this.pulsera = pulseraDelOtroAsistente;
+    }
 }
