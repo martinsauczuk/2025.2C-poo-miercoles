@@ -1,5 +1,7 @@
 package impresoras.impresoras;
 
+import eventosConPulseras.Evento;
+
 public class Documento {
     private int cantCian;
     private int cantMagenta;
@@ -7,7 +9,9 @@ public class Documento {
     private int cantNegro;
     private int cantPaginas;
 
-    private boolean fueImpreso = false;
+    private boolean fueImpreso;
+    private boolean fueAbrochado;
+    private boolean estaEncripado = true;
 
     public Documento(int cantCian, int cantMagenta, int cantAmarillo, int cantNegro, int cantPaginas) {
         this.cantCian = cantCian;
@@ -17,8 +21,16 @@ public class Documento {
         this.cantPaginas = cantPaginas;
     }
 
+    public void desencriptar() {
+        this.estaEncripado = false;
+    }
+
     public void marcarComoImpreso() {
         this.fueImpreso = true;
+    }
+
+    public void abrochar() {
+        this.fueAbrochado = true;
     }
 
     public int getCantCian() {
@@ -48,7 +60,13 @@ public class Documento {
     @Override
     public String toString() {
         return "Documento{" +
-                "fueImpreso=" + fueImpreso +
+                "cantCian=" + cantCian +
+                ", cantMagenta=" + cantMagenta +
+                ", cantAmarillo=" + cantAmarillo +
+                ", cantNegro=" + cantNegro +
+                ", cantPaginas=" + cantPaginas +
+                ", fueImpreso=" + fueImpreso +
+                ", fueAbrochado=" + fueAbrochado +
                 '}';
     }
 }
