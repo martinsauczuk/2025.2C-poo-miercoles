@@ -18,4 +18,8 @@ public class Libreria {
         librosEnVenta.clear();
     }
 
+    @Override
+    public String toString() {
+        return "Soy una libreria";
+    }
 }

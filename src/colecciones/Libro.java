@@ -6,7 +6,6 @@ public class Libro {
     private final String autor;
     private int cantLecturas = 0;
 
-
     public Libro(String titulo, String autor) {
         this.titulo = titulo;
         this.autor = autor;

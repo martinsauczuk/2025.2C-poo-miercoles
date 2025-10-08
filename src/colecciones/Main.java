@@ -13,6 +13,7 @@ public class Main {
 
         // Set
         System.out.println("------Set------");
+
         HashSet<Libro> libros = new HashSet<Libro>();
         System.out.printf("Cantidad: %d %n",libros.size()); // 0
         libros.add(elPrincipito);
@@ -61,7 +62,7 @@ public class Main {
         System.out.println(santaFe.cuantosLibrosTeQuedan());
 
 
-
+        System.out.println(santaFe);
 
 
     }
