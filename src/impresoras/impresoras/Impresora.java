@@ -61,7 +61,15 @@ public class Impresora {
     }
 
 
-    public Documento imprimir(Documento unDocumento) {
+    public Documento imprimir(Documento unDocumento) throws ImpresionException, ArithmeticException {
+
+        // division
+
+
+
+        if ( !podesImprimir(unDocumento)) {
+            throw new ImpresionException("Error en la impresion", 3434, "Asegurate no quedarte sin hojas");
+        }
 
         this.incrementarContadores(unDocumento);
         this.actualizarTintas(unDocumento);
